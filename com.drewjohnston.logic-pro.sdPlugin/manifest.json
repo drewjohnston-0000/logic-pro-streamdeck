@@ -79,10 +79,10 @@
       ]
     },
     {
-      "Name": "Rewind",
+      "Name": "Back One Bar",
       "UUID": "com.drewjohnston.logic-pro.transport-rewind",
       "Icon": "imgs/actions/rewind/icon",
-      "Tooltip": "Rewind — hold to keep moving.",
+      "Tooltip": "Jump the playhead back one bar.",
       "Controllers": ["Keypad"],
       "DisableAutomaticStates": true,
       "States": [
@@ -91,10 +91,10 @@
       ]
     },
     {
-      "Name": "Fast Forward",
+      "Name": "Forward One Bar",
       "UUID": "com.drewjohnston.logic-pro.transport-forward",
       "Icon": "imgs/actions/forward/icon",
-      "Tooltip": "Fast forward — hold to keep moving.",
+      "Tooltip": "Jump the playhead forward one bar.",
       "Controllers": ["Keypad"],
       "DisableAutomaticStates": true,
       "States": [

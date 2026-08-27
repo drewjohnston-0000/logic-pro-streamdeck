@@ -1,4 +1,4 @@
-import { KeyDownEvent, KeyUpEvent, SingletonAction, WillAppearEvent } from "@elgato/streamdeck";
+import { KeyDownEvent, SingletonAction, WillAppearEvent } from "@elgato/streamdeck";
 
 import { Buttons } from "../mcu/constants";
 import type { McuSurface } from "../mcu/surface";
@@ -37,30 +37,18 @@ export class McuLedAction extends SingletonAction {
 }
 
 /**
- * Variant for the shuttle buttons (rewind / fast-forward): the MCU press is
- * sent on key-down and the release on key-up. Logic latches the shuttle
- * rather than stopping it on release, so if playback was running when the
- * key went down, a PLAY tap on release drops back to normal speed.
+ * Variant for rewind / fast-forward as discrete bar jumps. Logic's MCU
+ * shuttle latches and fights running playback, so instead each press taps
+ * the shuttle button for a single step (one bar) and immediately halts it:
+ * PLAY resumes normal speed if playback was running (a lone PLAY after a
+ * shuttle tap resumes rather than restarts), otherwise a single STOP stops
+ * the shuttle (the jump-to-start needs two consecutive stops, so one is
+ * safe).
  */
-export class McuHoldAction extends McuLedAction {
-  private resumePlayback = false;
-
+export class McuJumpAction extends McuLedAction {
   override async onKeyDown(_ev: KeyDownEvent): Promise<void> {
-    this.resumePlayback = this.surface.ledState(Buttons.PLAY);
-    this.surface.press(this.button);
-  }
-
-  override async onKeyUp(_ev: KeyUpEvent): Promise<void> {
-    this.surface.release(this.button);
-    // Logic latches the shuttle on release, so send an explicit stopper:
-    // PLAY resumes normal speed if playback was running, otherwise a single
-    // STOP halts the shuttle (a lone STOP while stopped is a no-op — the
-    // jump-to-start needs two consecutive stops).
-    if (this.resumePlayback) {
-      this.resumePlayback = false;
-      this.surface.tap(Buttons.PLAY);
-    } else {
-      this.surface.tap(Buttons.STOP);
-    }
+    const wasPlaying = this.surface.ledState(Buttons.PLAY);
+    this.surface.tap(this.button);
+    this.surface.tap(wasPlaying ? Buttons.PLAY : Buttons.STOP);
   }
 }

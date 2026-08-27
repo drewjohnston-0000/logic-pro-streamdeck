@@ -2,7 +2,7 @@ import streamDeck, { action, KeyDownEvent, SingletonAction } from "@elgato/strea
 
 import { Buttons } from "../mcu/constants";
 import type { McuSurface } from "../mcu/surface";
-import { McuHoldAction, McuLedAction } from "./mcu-led-action";
+import { McuJumpAction, McuLedAction } from "./mcu-led-action";
 
 /**
  * Play/Stop toggle. MCU PLAY does not toggle — pressed while playing it
@@ -49,14 +49,14 @@ export class TransportClick extends McuLedAction {
 }
 
 @action({ UUID: "com.drewjohnston.logic-pro.transport-rewind" })
-export class TransportRewind extends McuHoldAction {
+export class TransportRewind extends McuJumpAction {
   constructor(surface: McuSurface) {
     super(surface, Buttons.REWIND);
   }
 }
 
 @action({ UUID: "com.drewjohnston.logic-pro.transport-forward" })
-export class TransportForward extends McuHoldAction {
+export class TransportForward extends McuJumpAction {
   constructor(surface: McuSurface) {
     super(surface, Buttons.FAST_FORWARD);
   }
