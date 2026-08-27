@@ -31,6 +31,12 @@ npm run watch                                        # rebuild + restart on chan
 > **Reload wrinkle:** `streamdeck restart` can also silently no-op (reports success, same PID).
 > The reliable code reload is killing the plugin process — the app respawns it in seconds:
 > `pkill -f "logic-pro.sdPlugin/bin/plugin.js"`. Verify with a fresh "MCU surface up" log line.
+>
+> **Orphan wrinkle:** quitting the Stream Deck app does NOT kill the plugin's Node process — it
+> survives as an orphan holding a duplicate "SD Logic Control" port, and every app bounce adds
+> another. Duplicate ports break Logic's control-surface binding. Always bounce the app like:
+> `pkill -f "Elgato Stream Deck"; pkill -f "logic-pro.sdPlugin/bin/plugin.js"; sleep 3; open -a "Elgato Stream Deck"`
+> and verify a single process/port afterwards (`pgrep -f logic-pro.sdPlugin | wc -l` → 1).
 
 Project layout:
 
