@@ -9,6 +9,7 @@ import {
   TransportReturnToZero,
   TransportRewind
 } from "./actions/transport";
+import { TrackArm, TrackMute, TrackName, TrackNext, TrackPrev, TrackSolo } from "./actions/track";
 import { McuSurface } from "./mcu/surface";
 
 streamDeck.logger.setLevel(LogLevel.DEBUG);
@@ -26,6 +27,12 @@ streamDeck.actions.registerAction(new TransportClick(surface));
 streamDeck.actions.registerAction(new TransportRewind());
 streamDeck.actions.registerAction(new TransportForward());
 streamDeck.actions.registerAction(new TransportReturnToZero(surface));
+streamDeck.actions.registerAction(new TrackMute(surface));
+streamDeck.actions.registerAction(new TrackSolo(surface));
+streamDeck.actions.registerAction(new TrackArm(surface));
+streamDeck.actions.registerAction(new TrackName(surface));
+streamDeck.actions.registerAction(new TrackPrev());
+streamDeck.actions.registerAction(new TrackNext());
 
 streamDeck.connect();
 surface.start();

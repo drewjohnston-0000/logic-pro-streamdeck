@@ -1,7 +1,7 @@
 import * as midi from "@julusian/midi";
 import { EventEmitter } from "node:events";
 
-import { LCD_COLUMNS, LCD_ROWS, SYSEX_HEADER, Sysex, type McuButton } from "./constants";
+import { Buttons, LCD_COLUMNS, LCD_ROWS, SYSEX_HEADER, Sysex, type McuButton } from "./constants";
 
 export interface McuSurfaceEvents {
   /** Logic set an LED (transport, cycle, click, mute/solo/arm, ...). */
@@ -10,6 +10,8 @@ export interface McuSurfaceEvents {
   lcd: [row: number, text: string];
   /** Raw fader position from Logic (channel 0-8, 14-bit value). */
   fader: [channel: number, value: number];
+  /** Logic lit the SELECT LED of a bank channel (0-7) — the selected track. */
+  selection: [channel: number];
   /** Port opened and ready. */
   started: [];
   error: [error: Error];
@@ -31,6 +33,8 @@ export class McuSurface extends EventEmitter<McuSurfaceEvents> {
   private readonly leds = new Map<number, boolean>();
   /** Main LCD contents, 2 rows × 56 chars. */
   private readonly lcd: string[] = Array.from({ length: LCD_ROWS }, () => " ".repeat(LCD_COLUMNS));
+  /** Bank channel (0-7) whose SELECT LED Logic lit last. */
+  private selected = 0;
 
   start(): void {
     if (this.input) return;
@@ -84,6 +88,17 @@ export class McuSurface extends EventEmitter<McuSurfaceEvents> {
     return this.lcd[row] ?? "";
   }
 
+  /** Bank channel (0-7) of the currently selected track. */
+  get selectedChannel(): number {
+    return this.selected;
+  }
+
+  /** Channel-strip name from the LCD top row (8 channels × 7-char cells). */
+  channelName(channel: number): string {
+    const cell = LCD_COLUMNS / 8;
+    return this.lcd[0]?.slice(channel * cell, (channel + 1) * cell).trim() ?? "";
+  }
+
   private onMessage(message: number[]): void {
     const [status] = message;
 
@@ -98,6 +113,10 @@ export class McuSurface extends EventEmitter<McuSurfaceEvents> {
       const on = velocity > 0;
       this.leds.set(note, on);
       this.emit("led", note, on, velocity);
+      if (on && note >= Buttons.SELECT_BASE && note < Buttons.SELECT_BASE + 8) {
+        this.selected = note - Buttons.SELECT_BASE;
+        this.emit("selection", this.selected);
+      }
     } else if (type === 0xe0) {
       const channel = status & 0x0f;
       const [, lsb, msb] = message;

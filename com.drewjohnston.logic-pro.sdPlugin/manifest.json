@@ -107,6 +107,72 @@
       "States": [
         { "Image": "imgs/actions/rtz/key" }
       ]
+    },
+    {
+      "Name": "Mute Track",
+      "UUID": "com.drewjohnston.logic-pro.track-mute",
+      "Icon": "imgs/actions/track-mute/icon",
+      "Tooltip": "Mute the selected track.",
+      "Controllers": ["Keypad"],
+      "DisableAutomaticStates": true,
+      "States": [
+        { "Image": "imgs/actions/track-mute/key", "Name": "Off" },
+        { "Image": "imgs/actions/track-mute/key-on", "Name": "Muted" }
+      ]
+    },
+    {
+      "Name": "Solo Track",
+      "UUID": "com.drewjohnston.logic-pro.track-solo",
+      "Icon": "imgs/actions/track-solo/icon",
+      "Tooltip": "Solo the selected track.",
+      "Controllers": ["Keypad"],
+      "DisableAutomaticStates": true,
+      "States": [
+        { "Image": "imgs/actions/track-solo/key", "Name": "Off" },
+        { "Image": "imgs/actions/track-solo/key-on", "Name": "Soloed" }
+      ]
+    },
+    {
+      "Name": "Record Arm",
+      "UUID": "com.drewjohnston.logic-pro.track-arm",
+      "Icon": "imgs/actions/track-arm/icon",
+      "Tooltip": "Record-arm the selected track.",
+      "Controllers": ["Keypad"],
+      "DisableAutomaticStates": true,
+      "States": [
+        { "Image": "imgs/actions/track-arm/key", "Name": "Off" },
+        { "Image": "imgs/actions/track-arm/key-on", "Name": "Armed" }
+      ]
+    },
+    {
+      "Name": "Track Name",
+      "UUID": "com.drewjohnston.logic-pro.track-name",
+      "Icon": "imgs/actions/track-name/icon",
+      "Tooltip": "Shows the selected track's name.",
+      "Controllers": ["Keypad"],
+      "States": [
+        { "Image": "imgs/actions/track-name/key" }
+      ]
+    },
+    {
+      "Name": "Previous Track",
+      "UUID": "com.drewjohnston.logic-pro.track-prev",
+      "Icon": "imgs/actions/track-prev/icon",
+      "Tooltip": "Select the previous track.",
+      "Controllers": ["Keypad"],
+      "States": [
+        { "Image": "imgs/actions/track-prev/key" }
+      ]
+    },
+    {
+      "Name": "Next Track",
+      "UUID": "com.drewjohnston.logic-pro.track-next",
+      "Icon": "imgs/actions/track-next/icon",
+      "Tooltip": "Select the next track.",
+      "Controllers": ["Keypad"],
+      "States": [
+        { "Image": "imgs/actions/track-next/key" }
+      ]
     }
   ]
 }
