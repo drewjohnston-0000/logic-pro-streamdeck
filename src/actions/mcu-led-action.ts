@@ -52,9 +52,15 @@ export class McuHoldAction extends McuLedAction {
 
   override async onKeyUp(_ev: KeyUpEvent): Promise<void> {
     this.surface.release(this.button);
+    // Logic latches the shuttle on release, so send an explicit stopper:
+    // PLAY resumes normal speed if playback was running, otherwise a single
+    // STOP halts the shuttle (a lone STOP while stopped is a no-op — the
+    // jump-to-start needs two consecutive stops).
     if (this.resumePlayback) {
       this.resumePlayback = false;
       this.surface.tap(Buttons.PLAY);
+    } else {
+      this.surface.tap(Buttons.STOP);
     }
   }
 }
