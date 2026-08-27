@@ -1,5 +1,6 @@
 import { KeyDownEvent, KeyUpEvent, SingletonAction, WillAppearEvent } from "@elgato/streamdeck";
 
+import { Buttons } from "../mcu/constants";
 import type { McuSurface } from "../mcu/surface";
 
 /**
@@ -36,16 +37,24 @@ export class McuLedAction extends SingletonAction {
 }
 
 /**
- * Variant for momentary buttons that act while held (rewind / fast-forward):
- * the MCU press is sent on key-down and the release on key-up, so holding the
- * key keeps the transport moving.
+ * Variant for the shuttle buttons (rewind / fast-forward): the MCU press is
+ * sent on key-down and the release on key-up. Logic latches the shuttle
+ * rather than stopping it on release, so if playback was running when the
+ * key went down, a PLAY tap on release drops back to normal speed.
  */
 export class McuHoldAction extends McuLedAction {
+  private resumePlayback = false;
+
   override async onKeyDown(_ev: KeyDownEvent): Promise<void> {
+    this.resumePlayback = this.surface.ledState(Buttons.PLAY);
     this.surface.press(this.button);
   }
 
   override async onKeyUp(_ev: KeyUpEvent): Promise<void> {
     this.surface.release(this.button);
+    if (this.resumePlayback) {
+      this.resumePlayback = false;
+      this.surface.tap(Buttons.PLAY);
+    }
   }
 }

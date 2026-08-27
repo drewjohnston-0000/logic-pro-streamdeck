@@ -63,9 +63,9 @@ export class TransportForward extends McuHoldAction {
 }
 
 /**
- * Return to zero. MCU has no dedicated RTZ button; Logic's transport jumps to
- * the project start when Stop is pressed while already stopped, so a double
- * Stop tap covers both cases (playing -> stop + jump, stopped -> jump).
+ * Return to zero. MCU has no dedicated RTZ button. While playing, PLAY
+ * restarts from the project start without stopping; while stopped, a double
+ * Stop tap jumps the playhead to the start.
  */
 @action({ UUID: "com.drewjohnston.logic-pro.transport-rtz" })
 export class TransportReturnToZero extends SingletonAction {
@@ -74,8 +74,13 @@ export class TransportReturnToZero extends SingletonAction {
   }
 
   override async onKeyDown(_ev: KeyDownEvent): Promise<void> {
-    this.surface.tap(Buttons.STOP);
-    this.surface.tap(Buttons.STOP);
-    streamDeck.logger.debug("Return to zero (double stop)");
+    if (this.surface.ledState(Buttons.PLAY)) {
+      this.surface.tap(Buttons.PLAY);
+      streamDeck.logger.debug("Return to zero (restart playback)");
+    } else {
+      this.surface.tap(Buttons.STOP);
+      this.surface.tap(Buttons.STOP);
+      streamDeck.logger.debug("Return to zero (double stop)");
+    }
   }
 }
