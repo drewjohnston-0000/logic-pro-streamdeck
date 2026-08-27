@@ -1,0 +1,8 @@
+{
+  "name": "com.drewjohnston.logic-pro",
+  "private": true,
+  "description": "Runtime dependencies for the built plugin. @julusian/midi is a native addon and cannot be bundled by rollup; `npm run build` installs it here.",
+  "dependencies": {
+    "@julusian/midi": "^3.8.1"
+  }
+}

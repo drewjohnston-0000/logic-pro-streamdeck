@@ -1,7 +1,7 @@
 ---
 id: LSD-02
 title: Virtual MIDI port & MCU protocol core
-status: todo
+status: done
 ---
 
 # LSD-02 - Virtual MIDI port & MCU protocol core
