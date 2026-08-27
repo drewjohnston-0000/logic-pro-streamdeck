@@ -2,7 +2,7 @@ import streamDeck, { action, KeyDownEvent, SingletonAction } from "@elgato/strea
 
 import { Buttons } from "../mcu/constants";
 import type { McuSurface } from "../mcu/surface";
-import { sendKeyToLogic } from "../keystrokes";
+import { KeyCodes, sendKeyToLogic } from "../keystrokes";
 import { McuLedAction } from "./mcu-led-action";
 
 /**
@@ -58,14 +58,14 @@ export class TransportClick extends McuLedAction {
 @action({ UUID: "com.drewjohnston.logic-pro.transport-rewind" })
 export class TransportRewind extends SingletonAction {
   override async onKeyDown(_ev: KeyDownEvent): Promise<void> {
-    sendKeyToLogic(",");
+    sendKeyToLogic(KeyCodes.COMMA);
   }
 }
 
 @action({ UUID: "com.drewjohnston.logic-pro.transport-forward" })
 export class TransportForward extends SingletonAction {
   override async onKeyDown(_ev: KeyDownEvent): Promise<void> {
-    sendKeyToLogic(".");
+    sendKeyToLogic(KeyCodes.PERIOD);
   }
 }
 
