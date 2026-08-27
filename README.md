@@ -27,6 +27,10 @@ npm run watch                                        # rebuild + restart on chan
 > `manifest.json` (new actions, icons, states) requires fully quitting and relaunching the
 > Stream Deck app — and closing its window is not quitting; it keeps running in the menu bar.
 > Bounce it with: `pkill -f "Elgato Stream Deck"; sleep 3; open -a "Elgato Stream Deck"`
+>
+> **Reload wrinkle:** `streamdeck restart` can also silently no-op (reports success, same PID).
+> The reliable code reload is killing the plugin process — the app respawns it in seconds:
+> `pkill -f "logic-pro.sdPlugin/bin/plugin.js"`. Verify with a fresh "MCU surface up" log line.
 
 Project layout:
 
