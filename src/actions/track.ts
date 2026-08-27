@@ -63,32 +63,6 @@ export class TrackArm extends SelectedTrackToggle {
   }
 }
 
-/**
- * Shows the selected track's name (from the MCU LCD top row). Pressing the
- * key does nothing — it is a display.
- */
-@action({ UUID: "com.drewjohnston.logic-pro.track-name" })
-export class TrackName extends SingletonAction {
-  constructor(private readonly surface: McuSurface) {
-    super();
-    this.surface.on("selection", () => void this.refresh());
-    this.surface.on("lcd", (row) => {
-      if (row === 0) void this.refresh();
-    });
-  }
-
-  override async onWillAppear(_ev: WillAppearEvent): Promise<void> {
-    await this.refresh();
-  }
-
-  private async refresh(): Promise<void> {
-    const name = this.surface.channelName(this.surface.selectedChannel);
-    for (const visible of this.actions) {
-      await visible.setTitle(name);
-    }
-  }
-}
-
 /** Select the previous track (Logic's Up Arrow key command). */
 @action({ UUID: "com.drewjohnston.logic-pro.track-prev" })
 export class TrackPrev extends SingletonAction {

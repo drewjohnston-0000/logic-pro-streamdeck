@@ -29,7 +29,9 @@
       "UUID": "com.drewjohnston.logic-pro.transport-play",
       "Icon": "imgs/actions/play/icon",
       "Tooltip": "Toggle playback in Logic Pro.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "DisableAutomaticStates": true,
       "States": [
         {
@@ -47,11 +49,19 @@
       "UUID": "com.drewjohnston.logic-pro.transport-record",
       "Icon": "imgs/actions/record/icon",
       "Tooltip": "Start/stop recording in Logic Pro.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "DisableAutomaticStates": true,
       "States": [
-        { "Image": "imgs/actions/record/key", "Name": "Idle" },
-        { "Image": "imgs/actions/record/key-on", "Name": "Recording" }
+        {
+          "Image": "imgs/actions/record/key",
+          "Name": "Idle"
+        },
+        {
+          "Image": "imgs/actions/record/key-on",
+          "Name": "Recording"
+        }
       ]
     },
     {
@@ -59,11 +69,19 @@
       "UUID": "com.drewjohnston.logic-pro.transport-cycle",
       "Icon": "imgs/actions/cycle/icon",
       "Tooltip": "Toggle cycle (loop) mode in Logic Pro.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "DisableAutomaticStates": true,
       "States": [
-        { "Image": "imgs/actions/cycle/key", "Name": "Off" },
-        { "Image": "imgs/actions/cycle/key-on", "Name": "On" }
+        {
+          "Image": "imgs/actions/cycle/key",
+          "Name": "Off"
+        },
+        {
+          "Image": "imgs/actions/cycle/key-on",
+          "Name": "On"
+        }
       ]
     },
     {
@@ -71,11 +89,19 @@
       "UUID": "com.drewjohnston.logic-pro.transport-click",
       "Icon": "imgs/actions/click/icon",
       "Tooltip": "Toggle the metronome click in Logic Pro.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "DisableAutomaticStates": true,
       "States": [
-        { "Image": "imgs/actions/click/key", "Name": "Off" },
-        { "Image": "imgs/actions/click/key-on", "Name": "On" }
+        {
+          "Image": "imgs/actions/click/key",
+          "Name": "Off"
+        },
+        {
+          "Image": "imgs/actions/click/key-on",
+          "Name": "On"
+        }
       ]
     },
     {
@@ -83,9 +109,13 @@
       "UUID": "com.drewjohnston.logic-pro.transport-rewind",
       "Icon": "imgs/actions/rewind/icon",
       "Tooltip": "Jump the playhead back one bar.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "States": [
-        { "Image": "imgs/actions/rewind/key" }
+        {
+          "Image": "imgs/actions/rewind/key"
+        }
       ]
     },
     {
@@ -93,9 +123,13 @@
       "UUID": "com.drewjohnston.logic-pro.transport-forward",
       "Icon": "imgs/actions/forward/icon",
       "Tooltip": "Jump the playhead forward one bar.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "States": [
-        { "Image": "imgs/actions/forward/key" }
+        {
+          "Image": "imgs/actions/forward/key"
+        }
       ]
     },
     {
@@ -103,9 +137,13 @@
       "UUID": "com.drewjohnston.logic-pro.transport-rtz",
       "Icon": "imgs/actions/rtz/icon",
       "Tooltip": "Move the playhead to the project start.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "States": [
-        { "Image": "imgs/actions/rtz/key" }
+        {
+          "Image": "imgs/actions/rtz/key"
+        }
       ]
     },
     {
@@ -113,11 +151,19 @@
       "UUID": "com.drewjohnston.logic-pro.track-mute",
       "Icon": "imgs/actions/track-mute/icon",
       "Tooltip": "Mute the selected track.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "DisableAutomaticStates": true,
       "States": [
-        { "Image": "imgs/actions/track-mute/key", "Name": "Off" },
-        { "Image": "imgs/actions/track-mute/key-on", "Name": "Muted" }
+        {
+          "Image": "imgs/actions/track-mute/key",
+          "Name": "Off"
+        },
+        {
+          "Image": "imgs/actions/track-mute/key-on",
+          "Name": "Muted"
+        }
       ]
     },
     {
@@ -125,11 +171,19 @@
       "UUID": "com.drewjohnston.logic-pro.track-solo",
       "Icon": "imgs/actions/track-solo/icon",
       "Tooltip": "Solo the selected track.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "DisableAutomaticStates": true,
       "States": [
-        { "Image": "imgs/actions/track-solo/key", "Name": "Off" },
-        { "Image": "imgs/actions/track-solo/key-on", "Name": "Soloed" }
+        {
+          "Image": "imgs/actions/track-solo/key",
+          "Name": "Off"
+        },
+        {
+          "Image": "imgs/actions/track-solo/key-on",
+          "Name": "Soloed"
+        }
       ]
     },
     {
@@ -137,21 +191,19 @@
       "UUID": "com.drewjohnston.logic-pro.track-arm",
       "Icon": "imgs/actions/track-arm/icon",
       "Tooltip": "Record-arm the selected track.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "DisableAutomaticStates": true,
       "States": [
-        { "Image": "imgs/actions/track-arm/key", "Name": "Off" },
-        { "Image": "imgs/actions/track-arm/key-on", "Name": "Armed" }
-      ]
-    },
-    {
-      "Name": "Track Name",
-      "UUID": "com.drewjohnston.logic-pro.track-name",
-      "Icon": "imgs/actions/track-name/icon",
-      "Tooltip": "Shows the selected track's name.",
-      "Controllers": ["Keypad"],
-      "States": [
-        { "Image": "imgs/actions/track-name/key" }
+        {
+          "Image": "imgs/actions/track-arm/key",
+          "Name": "Off"
+        },
+        {
+          "Image": "imgs/actions/track-arm/key-on",
+          "Name": "Armed"
+        }
       ]
     },
     {
@@ -159,9 +211,13 @@
       "UUID": "com.drewjohnston.logic-pro.track-prev",
       "Icon": "imgs/actions/track-prev/icon",
       "Tooltip": "Select the previous track.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "States": [
-        { "Image": "imgs/actions/track-prev/key" }
+        {
+          "Image": "imgs/actions/track-prev/key"
+        }
       ]
     },
     {
@@ -169,9 +225,13 @@
       "UUID": "com.drewjohnston.logic-pro.track-next",
       "Icon": "imgs/actions/track-next/icon",
       "Tooltip": "Select the next track.",
-      "Controllers": ["Keypad"],
+      "Controllers": [
+        "Keypad"
+      ],
       "States": [
-        { "Image": "imgs/actions/track-next/key" }
+        {
+          "Image": "imgs/actions/track-next/key"
+        }
       ]
     }
   ]
