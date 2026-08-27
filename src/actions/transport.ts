@@ -19,10 +19,18 @@ export class TransportPlay extends McuLedAction {
   }
 }
 
+/**
+ * Record toggle. MCU RECORD is ignored by Logic while already recording, so
+ * when the RECORD LED is lit a press sends STOP instead.
+ */
 @action({ UUID: "com.drewjohnston.logic-pro.transport-record" })
 export class TransportRecord extends McuLedAction {
   constructor(surface: McuSurface) {
     super(surface, Buttons.RECORD);
+  }
+
+  override async onKeyDown(_ev: KeyDownEvent): Promise<void> {
+    this.surface.tap(this.surface.ledState(Buttons.RECORD) ? Buttons.STOP : Buttons.RECORD);
   }
 }
 
