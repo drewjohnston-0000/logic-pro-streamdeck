@@ -41,6 +41,72 @@
           "Name": "Playing"
         }
       ]
+    },
+    {
+      "Name": "Record",
+      "UUID": "com.drewjohnston.logic-pro.transport-record",
+      "Icon": "imgs/actions/record/icon",
+      "Tooltip": "Start/stop recording in Logic Pro.",
+      "Controllers": ["Keypad"],
+      "DisableAutomaticStates": true,
+      "States": [
+        { "Image": "imgs/actions/record/key", "Name": "Idle" },
+        { "Image": "imgs/actions/record/key-on", "Name": "Recording" }
+      ]
+    },
+    {
+      "Name": "Cycle",
+      "UUID": "com.drewjohnston.logic-pro.transport-cycle",
+      "Icon": "imgs/actions/cycle/icon",
+      "Tooltip": "Toggle cycle (loop) mode in Logic Pro.",
+      "Controllers": ["Keypad"],
+      "DisableAutomaticStates": true,
+      "States": [
+        { "Image": "imgs/actions/cycle/key", "Name": "Off" },
+        { "Image": "imgs/actions/cycle/key-on", "Name": "On" }
+      ]
+    },
+    {
+      "Name": "Click",
+      "UUID": "com.drewjohnston.logic-pro.transport-click",
+      "Icon": "imgs/actions/click/icon",
+      "Tooltip": "Toggle the metronome click in Logic Pro.",
+      "Controllers": ["Keypad"],
+      "DisableAutomaticStates": true,
+      "States": [
+        { "Image": "imgs/actions/click/key", "Name": "Off" },
+        { "Image": "imgs/actions/click/key-on", "Name": "On" }
+      ]
+    },
+    {
+      "Name": "Back One Bar",
+      "UUID": "com.drewjohnston.logic-pro.transport-rewind",
+      "Icon": "imgs/actions/rewind/icon",
+      "Tooltip": "Jump the playhead back one bar.",
+      "Controllers": ["Keypad"],
+      "States": [
+        { "Image": "imgs/actions/rewind/key" }
+      ]
+    },
+    {
+      "Name": "Forward One Bar",
+      "UUID": "com.drewjohnston.logic-pro.transport-forward",
+      "Icon": "imgs/actions/forward/icon",
+      "Tooltip": "Jump the playhead forward one bar.",
+      "Controllers": ["Keypad"],
+      "States": [
+        { "Image": "imgs/actions/forward/key" }
+      ]
+    },
+    {
+      "Name": "Return to Zero",
+      "UUID": "com.drewjohnston.logic-pro.transport-rtz",
+      "Icon": "imgs/actions/rtz/icon",
+      "Tooltip": "Move the playhead to the project start.",
+      "Controllers": ["Keypad"],
+      "States": [
+        { "Image": "imgs/actions/rtz/key" }
+      ]
     }
   ]
 }
