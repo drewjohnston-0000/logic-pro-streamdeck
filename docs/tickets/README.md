@@ -20,5 +20,6 @@ Local ticket system for the Logic Pro Stream Deck plugin. No Jira — tickets li
 | LSD-06 | Keystroke fallback action (any Logic key command) | todo |
 | LSD-07 | Icons, key art & 15-key profile layout | todo |
 | LSD-08 | Packaging & free distribution | todo |
+| LSD-09 | Persistent MIDI port (survive plugin reloads) | todo |
 
 Keep this index in sync when tickets change status.
