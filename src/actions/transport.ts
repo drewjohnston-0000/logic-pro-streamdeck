@@ -2,7 +2,8 @@ import streamDeck, { action, KeyDownEvent, SingletonAction } from "@elgato/strea
 
 import { Buttons } from "../mcu/constants";
 import type { McuSurface } from "../mcu/surface";
-import { McuJumpAction, McuLedAction } from "./mcu-led-action";
+import { sendKeyToLogic } from "../keystrokes";
+import { McuLedAction } from "./mcu-led-action";
 
 /**
  * Play/Stop toggle. MCU PLAY does not toggle — pressed while playing it
@@ -48,17 +49,23 @@ export class TransportClick extends McuLedAction {
   }
 }
 
+/**
+ * Bar navigation uses Logic's own Rewind/Forward key commands ("," / ".")
+ * rather than MCU: the MCU shuttle steps by division (1/16), latches, and
+ * fights running playback, while the key commands hop exactly one bar and
+ * behave during playback.
+ */
 @action({ UUID: "com.drewjohnston.logic-pro.transport-rewind" })
-export class TransportRewind extends McuJumpAction {
-  constructor(surface: McuSurface) {
-    super(surface, Buttons.REWIND);
+export class TransportRewind extends SingletonAction {
+  override async onKeyDown(_ev: KeyDownEvent): Promise<void> {
+    sendKeyToLogic(",");
   }
 }
 
 @action({ UUID: "com.drewjohnston.logic-pro.transport-forward" })
-export class TransportForward extends McuJumpAction {
-  constructor(surface: McuSurface) {
-    super(surface, Buttons.FAST_FORWARD);
+export class TransportForward extends SingletonAction {
+  override async onKeyDown(_ev: KeyDownEvent): Promise<void> {
+    sendKeyToLogic(".");
   }
 }
 

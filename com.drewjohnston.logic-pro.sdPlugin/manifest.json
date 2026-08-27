@@ -84,10 +84,8 @@
       "Icon": "imgs/actions/rewind/icon",
       "Tooltip": "Jump the playhead back one bar.",
       "Controllers": ["Keypad"],
-      "DisableAutomaticStates": true,
       "States": [
-        { "Image": "imgs/actions/rewind/key", "Name": "Idle" },
-        { "Image": "imgs/actions/rewind/key-on", "Name": "Active" }
+        { "Image": "imgs/actions/rewind/key" }
       ]
     },
     {
@@ -96,10 +94,8 @@
       "Icon": "imgs/actions/forward/icon",
       "Tooltip": "Jump the playhead forward one bar.",
       "Controllers": ["Keypad"],
-      "DisableAutomaticStates": true,
       "States": [
-        { "Image": "imgs/actions/forward/key", "Name": "Idle" },
-        { "Image": "imgs/actions/forward/key-on", "Name": "Active" }
+        { "Image": "imgs/actions/forward/key" }
       ]
     },
     {

@@ -23,8 +23,8 @@ streamDeck.actions.registerAction(new TransportPlay(surface));
 streamDeck.actions.registerAction(new TransportRecord(surface));
 streamDeck.actions.registerAction(new TransportCycle(surface));
 streamDeck.actions.registerAction(new TransportClick(surface));
-streamDeck.actions.registerAction(new TransportRewind(surface));
-streamDeck.actions.registerAction(new TransportForward(surface));
+streamDeck.actions.registerAction(new TransportRewind());
+streamDeck.actions.registerAction(new TransportForward());
 streamDeck.actions.registerAction(new TransportReturnToZero(surface));
 
 streamDeck.connect();
