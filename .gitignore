@@ -1,5 +1,6 @@
 node_modules/
 com.drewjohnston.logic-pro.sdPlugin/bin/
+com.drewjohnston.logic-pro.sdPlugin/node_modules/
 com.drewjohnston.logic-pro.sdPlugin/logs/
 *.streamDeckPlugin
 .DS_Store

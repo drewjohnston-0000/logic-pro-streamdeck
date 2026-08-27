@@ -11,6 +11,8 @@ const sdPlugin = "com.drewjohnston.logic-pro.sdPlugin";
 /** @type {import('rollup').RollupOptions} */
 const config = {
   input: "src/plugin.ts",
+  // Native addon — installed into the .sdPlugin by the build script instead of bundled.
+  external: ["@julusian/midi"],
   output: {
     file: `${sdPlugin}/bin/plugin.js`,
     sourcemap: isWatching,

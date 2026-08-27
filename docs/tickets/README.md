@@ -13,7 +13,7 @@ Local ticket system for the Logic Pro Stream Deck plugin. No Jira — tickets li
 | ID | Title | Status |
 |----|-------|--------|
 | LSD-01 | Plugin scaffold & build tooling | done |
-| LSD-02 | Virtual MIDI port & MCU protocol core | todo |
+| LSD-02 | Virtual MIDI port & MCU protocol core | in-progress |
 | LSD-03 | Transport actions with live feedback | todo |
 | LSD-04 | Selected-track strip (mute/solo/arm, name) | todo |
 | LSD-05 | Markers & navigation | todo |
