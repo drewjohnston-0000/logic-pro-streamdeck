@@ -2,15 +2,15 @@
 
 The plugin exposes a virtual MIDI control surface named **SD Logic Control**. Logic has to be told once to treat it as a Mackie Control; after that the connection is automatic on every launch.
 
+Written against Logic Pro 12.x. (On Logic 10.x you may first need to enable advanced tools under Settings → Advanced; Logic 11+ has the full feature set on by default and no Advanced pane.)
+
 1. Make sure the Stream Deck app is running (it hosts the plugin, which creates the MIDI port).
-2. In Logic Pro, enable advanced control surface options if you haven't:
-   **Logic Pro → Settings → Advanced** — ensure full advanced tools are on.
-3. Open **Logic Pro → Control Surfaces → Setup…**
-4. In the Setup window: **New → Install…**, select **Mackie Designs – Mackie Control** (model *Mackie Control*), click **Add**.
-5. Select the new Mackie Control device and set both ports:
+2. Open **Logic Pro → Control Surfaces → Setup…**
+3. In the Setup window: **New → Install…**, select **Mackie Designs – Mackie Control** (model *Mackie Control*), click **Add**.
+4. Select the new Mackie Control device and set both ports in the inspector on the left:
    - **Input Port:** `SD Logic Control`
    - **Output Port:** `SD Logic Control`
-6. Close the window. The Stream Deck play key should now track Logic's transport — press play in Logic with the spacebar and watch the key light up.
+5. Close the window. The Stream Deck play key should now track Logic's transport — press play in Logic with the spacebar and watch the key light up.
 
 ## Troubleshooting
 
