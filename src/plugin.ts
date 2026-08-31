@@ -9,6 +9,7 @@ import {
   TransportReturnToZero,
   TransportRewind
 } from "./actions/transport";
+import { KeyCommand } from "./actions/key-command";
 import { TrackArm, TrackMute, TrackNext, TrackPrev, TrackSolo } from "./actions/track";
 import { McuSurface } from "./mcu/surface";
 
@@ -32,6 +33,7 @@ streamDeck.actions.registerAction(new TrackSolo(surface));
 streamDeck.actions.registerAction(new TrackArm(surface));
 streamDeck.actions.registerAction(new TrackPrev());
 streamDeck.actions.registerAction(new TrackNext());
+streamDeck.actions.registerAction(new KeyCommand());
 
 streamDeck.connect();
 surface.start();
