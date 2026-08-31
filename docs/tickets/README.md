@@ -15,9 +15,9 @@ Local ticket system for the Logic Pro Stream Deck plugin. No Jira — tickets li
 | LSD-01 | Plugin scaffold & build tooling | done |
 | LSD-02 | Virtual MIDI port & MCU protocol core | done |
 | LSD-03 | Transport actions with live feedback | done |
-| LSD-04 | Selected-track strip (mute/solo/arm, name) | in-progress |
+| LSD-04 | Selected-track strip (mute/solo/arm, name) | done |
 | LSD-05 | Markers & navigation | todo |
-| LSD-06 | Keystroke fallback action (any Logic key command) | todo |
+| LSD-06 | Keystroke fallback action (any Logic key command) | in-progress |
 | LSD-07 | Icons, key art & 15-key profile layout | todo |
 | LSD-08 | Packaging & free distribution | todo |
 | LSD-09 | Persistent MIDI port (survive plugin reloads) | todo |

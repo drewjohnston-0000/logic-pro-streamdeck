@@ -1,7 +1,7 @@
 ---
 id: LSD-06
 title: Keystroke fallback action (any Logic key command)
-status: todo
+status: in-progress
 ---
 
 # LSD-06 - Keystroke fallback action

@@ -1,7 +1,7 @@
 ---
 id: LSD-04
 title: Selected-track strip (mute/solo/arm, name)
-status: in-progress
+status: done
 ---
 
 # LSD-04 - Selected-track strip
