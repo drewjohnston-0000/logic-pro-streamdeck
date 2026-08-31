@@ -4,7 +4,9 @@ import { execFile } from "node:child_process";
 /** macOS virtual key codes for keys used as Logic key commands. */
 export const KeyCodes = {
   COMMA: 43,
-  PERIOD: 47
+  PERIOD: 47,
+  ARROW_UP: 126,
+  ARROW_DOWN: 125
 } as const;
 
 /**
