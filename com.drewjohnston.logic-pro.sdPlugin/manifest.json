@@ -233,6 +233,21 @@
           "Image": "imgs/actions/track-next/key"
         }
       ]
+    },
+    {
+      "Name": "Key Command",
+      "UUID": "com.drewjohnston.logic-pro.key-command",
+      "Icon": "imgs/actions/key-command/icon",
+      "Tooltip": "Send any Logic Pro key command (configure key + modifiers).",
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "ui/key-command.html",
+      "States": [
+        {
+          "Image": "imgs/actions/key-command/key"
+        }
+      ]
     }
   ]
 }
